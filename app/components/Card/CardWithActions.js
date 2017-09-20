@@ -6,6 +6,7 @@ import {
   View,
   TouchableOpacity,
   Image,
+  Alert
 } from 'react-native'
 
 import { CardActionSeparator } from '../Separator'
@@ -52,7 +53,7 @@ class CardWithActions extends React.Component {
   }
 
   handlePress = () => {
-    console.log('button pressed')
+    alert('button pressed')
   }
 
   render() {
