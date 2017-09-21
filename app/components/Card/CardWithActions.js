@@ -4,10 +4,10 @@ import {
   Dimensions,
   StyleSheet,
   View,
-  TouchableOpacity,
-  Image,
-  Alert
+  TouchableOpacity
 } from 'react-native'
+
+import Ionicon from 'react-native-vector-icons/Ionicons'
 
 import { CardActionSeparator } from '../Separator'
 
@@ -26,8 +26,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0.9)',
     borderTopLeftRadius: RADIUS,
     borderTopRightRadius: RADIUS,
-    alignItems: 'center',
-    paddingVertical: height * 0.02
+    flexDirection: 'column',
+    alignItems: 'stretch',
+    justifyContent: 'flex-start',
+    paddingVertical: height * 0.02,
+    paddingHorizontal: width * 0.04
   },
   cardActions: {
     height: (height * 0.4) * 0.2,
@@ -36,10 +39,12 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: RADIUS,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around'
+    justifyContent: 'space-between'
   },
   actionButton: {
-
+    paddingHorizontal: 33,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   actionIcon: {
     height: 30,
@@ -52,8 +57,16 @@ class CardWithActions extends React.Component {
     children: PropTypes.any
   }
 
-  handlePress = () => {
-    alert('button pressed')
+  handleRegister = () => {
+    alert('register')
+  }
+
+  handleCall = () => {
+    alert('call')
+  }
+
+  handleMap = () => {
+    alert('map')
   }
 
   render() {
@@ -65,35 +78,38 @@ class CardWithActions extends React.Component {
         </View>
         <View style={styles.cardActions}>
           <TouchableOpacity
-            onPress={this.handlePress}
+            onPress={this.handleRegister}
             style={styles.actionButton}
           >
-            <Image
+            <Ionicon
               style={styles.actionIcon}
-              resizeMode="contain"
-              source={require('./images/ic_registro_login.png')}
+              size={30}
+              color="white"
+              name="ios-person-add-outline"
             />
           </TouchableOpacity>
           <CardActionSeparator color="white" height={20} />
           <TouchableOpacity
-            onPress={this.handlePress}
+            onPress={this.handleCall}
             style={styles.actionButton}
           >
-            <Image
+            <Ionicon
               style={styles.actionIcon}
-              resizeMode="contain"
-              source={require('./images/ic_call_login.png')}
+              size={30}
+              color="white"
+              name="ios-headset-outline"
             />
           </TouchableOpacity>
           <CardActionSeparator color="white" height={20} />
           <TouchableOpacity
-            onPress={this.handlePress}
+            onPress={this.handleMap}
             style={styles.actionButton}
           >
-            <Image
+            <Ionicon
               style={styles.actionIcon}
-              resizeMode="contain"
-              source={require('./images/ic_map_login.png')}
+              size={30}
+              color="white"
+              name="ios-pin-outline"
             />
           </TouchableOpacity>
         </View>

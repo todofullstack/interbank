@@ -9,11 +9,10 @@ const inputHeight = 40
 
 const styles = StyleSheet.create({
   container: {
-    width: '90%',
     height: inputHeight,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   inputContainer: {
     flex: 1,
@@ -81,12 +80,15 @@ class InputWithRightButton extends Component {
         borderBottomColor: '#009B3A'
       })
     }
+
+    const { placeholder } = this.props
+
     return (
       <View style={styles.container}>
         <View style={inputContainerStyle}>
           <TextInput
             style={styles.textInput}
-            placeholder="N° de tarjeta"
+            placeholder={placeholder}
             placeholderTextColor="#BDBDBD"
             underlineColorAndroid="transparent"
             keyboardType="numeric"
